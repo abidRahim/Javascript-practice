@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>About Me</title>
+</head>
+<body>
+  <h1>About Me</h1>
+
+  <ul>
+    <li>Nickname: <span id="nickname"></span>
+    <li>Favorites:  <span id="favorites"></span>
+    <li>Hometown: <span id="hometown"></span>
+   </ul>
+
+   <script>
+
+    //  problem #2
+     document.body.style.fontFamily="Arial, sans-serif";
+
+     var nick = document.getElementById("nickname");
+     var fav = document.getElementById("favorites");
+     var home = document.getElementById("hometown");
+
+    // Problem #3
+     nick.textContent = "Sammy";
+     fav.textContent = "Lamb burger";
+     home.textContent = "Heaven";
+
+    // Problem #4
+     var unordered = document.querySelector("ul").children;
+
+     for (element of unordered) {
+       element.className = "listitem";
+     }
+     
+     var sheets = document.createElement("style");
+     sheets.innerHTML = ".listitem { color: red; }";
+     document.head.appendChild(sheets);
+    
+
+    // Problem #5
+    var img = document.createElement("img");
+    
+    img.setAttribute('src', 'https://easydrawingguides-7512.kxcdn.com/wp-content/uploads/2017/02/How-draw-a-cartoon-panda-21.png');
+     
+    document.body.insertBefore(img, null);
+   </script>
+ </body>
+</html>

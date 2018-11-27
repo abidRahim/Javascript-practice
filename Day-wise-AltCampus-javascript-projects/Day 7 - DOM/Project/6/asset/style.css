@@ -1,0 +1,66 @@
+/* *, *::before, *::after {
+  box-sizing: border-box;
+} */
+
+:root {
+  --rotateTo: 0;
+}
+
+body {
+  background-color: rgb(192, 68, 255);
+}  
+
+.clock {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border: 25px solid rgb(209, 209, 209);
+  margin: 180px auto;
+  position: relative;   
+
+}
+
+.center {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hour {
+  height: 80px;
+  width: 4px;
+  background-color: black;
+  position: absolute;
+  left: 49.5%;
+  top: 23%;
+  transform-origin: 50% 100%;
+  /* transform: rotate( calc( var(--rotateTo) * 1deg) ); */
+}
+
+.minute {
+  height: 110px;
+  width: 4px;
+  background-color: black;
+  position: absolute;
+  left: 49.5%;
+  top: 13%;
+  transform-origin: 50% 100%;
+  /* transform: rotate( calc( var(--rotateTo) * 1deg) ); */
+
+}
+
+.second {
+  height: 120px;
+  width: 2px;
+  background-color: rgb(69, 51, 78);
+  position: absolute;
+  left: 49.7%;
+  top: 10%;
+  transform-origin: 50% 100%;  
+  z-index: -1;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+  <link rel="stylesheet" href="asset/style.css">
+</head>
+<body>
+
+  <div class="clock">
+    <div class="mark1"></div>
+    <div class="mark2"></div>
+    <div class="mark3"></div>
+    <div class="mark4"></div>
+    <div class="center"></div>
+    <div class="hour"></div>
+    <div class="minute"></div>
+    <div class="second"></div>
+  </div>
+
+  <script>
+    var second = document.querySelector(".second");
+    var minute = document.querySelector(".minute");
+    var hour = document.querySelector(".hour");
+    
+    secStick();
+    minStick();
+    hourStick();
+
+    
+    function secStick() {
+      var time = new Date();
+      var sec = time.getSeconds();
+      
+      let secDeg = sec * 6;
+      second.style.transform = `rotate( ${secDeg}deg )`;
+
+    }
+    
+    function minStick() {
+      var time = new Date();
+      var mins = time.getMinutes();
+      
+      let minDeg = mins * 6;
+      minute.style.transform = `rotate( ${minDeg}deg )`;
+    }
+    
+    function hourStick() {
+      var time = new Date();
+      var hours = time.getHours()%12;
+
+      let hourDeg = hours * 30;
+      
+      hour.style.transform = `rotate( ${hourDeg}deg )`;
+    }
+
+    setInterval( secStick, 1000);
+    setInterval( minStick , 60000);
+    setInterval( hourStick, 3600000);
+  </script>
+</body>
+</html>

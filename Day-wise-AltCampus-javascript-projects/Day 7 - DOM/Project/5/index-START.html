@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>Book List</title>
+ </head>
+<body>
+
+<h1>My Book List</h1>
+
+<script>
+  var books = [{
+    title: 'The Design of EveryDay Things',
+    author: 'Don Norman',
+    alreadyRead: false,
+    url: 'http://mozaicworks.com/wp-content/uploads/2015/02/cover-the-design-of-everyday-things-700x1050.jpg'
+  },
+  {
+    title: 'The Most Human Human',
+    author: 'Brian Christian',
+    alreadyRead: true,
+    url: 'https://i0.wp.com/www.casualoptimist.com/wp-content/uploads/2011/06/Most-Human-Human.jpg'
+  }];
+
+
+
+
+  books.forEach ( v => {
+    var para = document.createElement('p');
+    para.innerHTML = `Title: ${v.title} <br> Author: ${v.author}`;
+    return document.body.appendChild(para);
+  });
+
+
+  var ul = document.createElement("ul");
+
+  document.body.appendChild(ul);
+
+  books.forEach ( v => {
+    var li = document.createElement("li");
+    li.innerHTML = `Title: ${v.title} <br> Author: ${v.author}`;
+
+    return ul.appendChild(li);
+  });
+
+  books.forEach ( v => {
+    var img = document.createElement("img");
+    img.className = "image";
+    img.setAttribute("src", v.url);
+    if ( v.alreadyRead === true ) {
+      // img.style.outline = "5px solid green";
+      img.classList.add("read");
+    }
+    return document.body.append(img);
+  });
+
+    // img.style.display = "block";
+    var sheet = document.createElement("style");
+    sheet.innerHTML = `.image { 
+      display: block;
+      height: 500px;
+      width: 300px;
+      margin: 20px;
+      }
+      
+      .read {
+       border: 5px solid green; 
+       border-radius: 5px;
+      }`;
+    
+    document.head.append(sheet);
+</script>
+
+</body>
+</html>
