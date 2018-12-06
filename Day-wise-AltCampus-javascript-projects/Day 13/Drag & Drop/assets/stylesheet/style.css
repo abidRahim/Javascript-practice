@@ -1,0 +1,133 @@
+/* CSS Reset */
+
+:root {
+  font-size: 16px;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+  background-color: #0072ff;
+  font-family: 'Raleway', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;  
+}
+
+.dnd-heading {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2.8rem;
+  color: white;
+  font-weight: 300;  
+  letter-spacing: 0.2;
+  margin: 40px 0;
+}
+
+.list-container {
+  width: 240px;
+  margin: 0 auto;
+}
+
+#user-list {
+  border: 1px solid white;
+  background-color: #0072ff;
+  color: white; 
+  padding: 15px 12px;
+  width: 100%;
+  font-size: 1rem;
+
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#user-list::placeholder {
+  color: #82a4d1;
+}
+
+.add-list {
+  width: 240px;
+}
+
+li.list-item {
+  display: flex;
+  width: 100%;
+  background: white;
+  color: #0072ff;
+  margin: 10px 0;
+  justify-content: space-between;
+  padding: 15px 12px;  
+  align-items: center;
+  cursor: move;
+}
+
+.list-item.over {
+  border: 2px dashed #000;
+}
+
+.list-item:hover .drag {
+  transform: translateX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+p{
+  font-family: 
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+span.drag {
+  font-size: 0.6rem;
+  font-weight: bold;
+  transform: translateX(150%);
+}
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
