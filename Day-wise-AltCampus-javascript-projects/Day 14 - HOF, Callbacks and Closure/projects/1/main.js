@@ -62,45 +62,72 @@ function add(a, b) {
 }
 
 //Extension 3
-  function intersection(array) {
-    let args = [...arguments];
-    var filteredArr = [];
-    
-    return args.reduce( (acc, cur, i) => {
-      
-      acc.forEach( val => {
-        filteredArr = cur.filter( v => v == val );
-      });
-      acc = [];
-      
-      return acc.push(filteredArr);
-    }, args[0]);
-  }
+function intersection() {
+  let args = [...arguments];  
+
+ return args.reduce( (acc, curr) => {
+    acc = curr.filter( value => acc.includes(value));
+    return acc;
+  }, args[0]);   // leave second parameter empty
+}
 
 // console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
 // should log: [5, 15]
 
 //Extension 4
-function union(arrays) {
+function union() {
+  let args = [...arguments];
 
+  return args.reduce( (acc, curr) => {
+    acc.push(curr.filter( val => !acc.includes(val) ));
+    return acc.flat();
+  },);
 }
 
 // console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 //Extension 5
-function objOfMatches(array1, array2, callback) {
 
+function objOfMatches(array1, array2, callback) {
+  let newObj = {};
+
+  let origObj =  array1.reduce( (acc, cur) => {
+    array2.forEach( val => {
+      if( val.toLowerCase() == cur.toLowerCase() ) {
+        acc[cur] = val;
+      }
+    });
+
+    return acc;
+  }, {});
+
+  for( item in origObj) {
+    if ( origObj[item] == callback(origObj[item]) ) {
+      newObj[item] = origObj[item];
+    }
+  }
+
+  return newObj;
 }
 
 // console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
 // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
 
 //Extension 6
-function multiMap(arrVals, arrCallbacks) {
 
+function multiMap(arrVals, arrCallbacks) {
+  
+  return arrCallbacks.reduce( (acc, cur) => {
+    
+    arrVals.forEach( val => {
+      acc[val] = arrVals.map(cur);
+    });
+      
+    return acc;
+  }, {});
+  
 }
 
 // console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
 // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
-
