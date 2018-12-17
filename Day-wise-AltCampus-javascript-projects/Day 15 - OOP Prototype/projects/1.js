@@ -11,8 +11,8 @@
   }
 
   function Truck(driver, mph, cargo) {
-    console.log(this);    
-    Vehicle.call(this, driver, speed)
+    console.log(this);
+    Vehicle.call(this, driver, mph)
     this.cargo = cargo;
   }
 
@@ -25,7 +25,8 @@
     return this.cargo.pop();
   }
 
-  Truck.prototype.__proto__ = Vehicle.prototype;
+  Object.setPrototypeOf(Truck.prototype, Vehicle.prototype);
+  // Truck.prototype.__proto__ = Vehicle.prototype;
 
   var car = new Vehicle("Ravi", 100);
   
@@ -44,9 +45,3 @@
   }
 
   var Teacher = new Person("Chem");
-
-
-
-  
-
-

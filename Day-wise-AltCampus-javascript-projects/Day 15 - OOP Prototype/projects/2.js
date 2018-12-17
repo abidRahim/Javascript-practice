@@ -7,8 +7,6 @@ function Persone(name, yearOfBirth, job) {
   this.job = job;
 }
 
-
-
 // Define a function name calculateAge which returns the age of the person
 
 Persone.prototype.calculateAge = function() {    // **** Not working with arrow function ****
